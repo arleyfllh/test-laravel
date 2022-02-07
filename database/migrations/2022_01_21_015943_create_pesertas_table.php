@@ -15,12 +15,12 @@ class CreatePesertasTable extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_lengkap');
             $table->string('email')->unique();
-            $table->integer('nilai_X');
-            $table->integer('nilai_Y');
-            $table->integer('nilai_Z');
-            $table->integer('nilai_W');
+            $table->integer('nilai_x');
+            $table->integer('nilai_y');
+            $table->integer('nilai_z');
+            $table->integer('nilai_w');
             $table->timestamps();
         });
     }

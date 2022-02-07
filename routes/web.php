@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [PesertaController::class, 'index'])->name('pegawai');
+Route::get('/', [PesertaController::class, 'index'])->name('peserta');
 Route::get('/tambahpeserta', [PesertaController::class, 'tambahpeserta']);
 Route::post('/insertpeserta', [PesertaController::class, 'insertpeserta']);
 Route::get('/tampilpeserta/{id}', [PesertaController::class, 'tampilpeserta']);

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<h1 class="my-3">Data Peserta</h1>
+<h1 class="my-3 text-center bg-light py-3 rounded-3 border border-dark">Data Peserta</h1>
 <a href="/tambahpeserta" class="btn btn-success my-3">Tambah Peserta +</a>
 @if ($message = Session::get('success'))
   <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,34 +11,35 @@
 @endif
 <table class="table">
   <thead>
+    <tr class="text-white">
+      <th class="border-bottom-0 border-2 border-dark bg-dark text-center" style="vertical-align: middle" rowspan="2">Nama</th>
+      <th class="border-bottom-0 border-2 border-dark bg-dark text-center" style="vertical-align: middle" rowspan="2">Email</th>
+      <th class="border-bottom-0 border-2 border-dark bg-dark text-center" colspan="4">Nilai</th>
+      <th class="border-bottom-0 border-2 border-dark bg-dark text-center" style="vertical-align: middle" rowspan="2">Aksi</th>
+    </tr>
     <tr>
-      <th scope="col">Nama</th>
-      <th scope="col">Email</th>
-      <th scope="col">X</th>
-      <th scope="col">Y</th>
-      <th scope="col">Z</th>
-      <th scope="col">W</th>
-      <th scope="col">Aksi</th>
+      <th class="border-bottom-0 border-2 border-dark bg-warning text-center">X</th>
+      <th class="border-bottom-0 border-2 border-dark bg-danger text-center">Y</th>
+      <th class="border-bottom-0 border-2 border-dark bg-primary text-center">Z</th>
+      <th class="border-bottom-0 border-2 border-dark bg-info text-center">W</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($data as $row)
       <tr>
-        <td>{{ $row->nama }}</td>
-        <td>{{ $row->email }}</td>
-        <td>{{ $row->nilai_X }}</td>
-        <td>{{ $row->nilai_Y }}</td>
-        <td>{{ $row->nilai_Z }}</td>
-        <td>{{ $row->nilai_W }}</td>
-        <td>
-          <a href="/detailpeserta/{{ $row->id }}" class="btn btn-warning">Detail</a>
-          <a href="/tampilpeserta/{{ $row->id }}" class="btn btn-primary">Edit</a>
-          <a href="/deletepeserta/{{ $row->id }}" class="btn btn-danger">Hapus</button>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->nama_lengkap }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->email }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->nilai_x }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->nilai_y }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->nilai_z }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">{{ $row->nilai_w }}</td>
+        <td class="border-top-0 border-2 border-dark text-center" style="vertical-align: middle">
+          <a href="/detailpeserta/{{ $row->id }}" class="btn btn-warning border-dark">Detail</a>
+          <a href="/tampilpeserta/{{ $row->id }}" class="btn btn-primary border-dark">Edit</a>
+          <a href="/deletepeserta/{{ $row->id }}" class="btn btn-danger border-dark">Hapus</button>
         </td>
       </tr>
-        
     @endforeach
-
   </tbody>
 </table>
 @endsection
